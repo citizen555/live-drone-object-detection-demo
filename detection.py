@@ -25,7 +25,7 @@ class Detector:
         cv2.imwrite(os.path.join("Threatening_Objects", filename), annotated_image)
         self.frame_counter += 1
         print("*** Threatening object detected - frame saved ***")
-        playsound(configuration.notification_sound)
+        playsound(self.configuration.notification_sound)
 
     def detect_threatening_objects(self):
 
