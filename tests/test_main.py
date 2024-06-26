@@ -11,9 +11,6 @@ class TestMain(unittest.TestCase):
         mock_detector_instance = MagicMock()
         mock_configurator.return_value = mock_config_instance
         mock_detector.return_value = mock_detector_instance
-
-        import main
-
         mock_configurator.assert_called_once()
         mock_detector.assert_called_once_with(mock_config_instance)
         mock_detector_instance.detect_threatening_objects.assert_called_once()

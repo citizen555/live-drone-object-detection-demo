@@ -15,7 +15,7 @@ class Configurator:
         self.used_model = YOLO('yolov8m.pt')
 
         # self.video_source = 'rtmp://127.0.0.1:1935/live/stream'
-        self.video_source = 'video_test_ultra_short_version.mp4'
+        self.video_source = 'video_test_ok.mp4'
 
         self.notification_sound = 'notification_sound.wav'
 
