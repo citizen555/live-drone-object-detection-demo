@@ -8,21 +8,33 @@ class Configurator:
 
         self.ip_addresses = self.get_active_ip_addresses()
 
+        self.notification_sound = 'notification_sound.wav'
+
         self.user_selected_classes = [0, 1, 2, 3, 4, 5, 7, 8]
         # train - 6
-        self.user_selected_threat = 'truck'
+
+        print("\n___Live drone object detection DEMO___\n")
+
+        print("Select object detected as threat (enter name):")
+        print("- 'person',\n- 'bicycle',\n- 'car',\n- 'motorcycle',\n- 'airplane',\n- 'bus',\n- 'truck',\n- 'boat',\n")
+
+        available_classes = ['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'truck', 'boat']
+        while True:
+            self.user_selected_threat = input("Selected threat: ")
+            if self.user_selected_threat not in available_classes:
+                print('Select object as threat from the list above')
+            else:
+                break
+
 
         self.used_model = YOLO('yolov8m.pt')
 
+        print('Please, input RMTP’s server URL or video destination')
+        self.video_source = input('URL / Destination: ')
+
+        print("\nInitialization ...")
+
         # self.video_source = 'rtmp://127.0.0.1:1935/live/stream'
-        self.video_source = 'video_test_ok.mp4'
-
-        self.notification_sound = 'notification_sound.wav'
-
-        # source = 'rtmp://127.0.0.1:1935/live/stream'
-        # source = 'https://www.youtube.com/watch?v=MNn9qKG2UFI&list=PLcQZGj9lFR7y5WikozDSrdk6UCtAnM9mB' # test video
-        # source = 'video_test.mp4'
-        # source = 'https://www.youtube.com/watch?v=10dguZKFWV4' # wlodawa city livestream
 
     @staticmethod
     def get_active_ip_addresses():
